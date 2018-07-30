@@ -28,7 +28,7 @@ def main(_):
     request.output_filter.append('irisout')
     # Send request
 
-    channel = implementations.insecure_channel('localhost', int(9000))
+    channel = implementations.insecure_channel('192.168.99.100', int(31521))
     stub = prediction_service_pb2.beta_create_PredictionService_stub(channel)
 
     print(stub.Predict(request, 5.0))

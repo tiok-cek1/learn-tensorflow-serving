@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: "testkube"
+spec:
+  selector:
+    app: "serving"
+  ports:
+    - protocol: "TCP"
+      port: 9000
+      nodePort: 31521
+      targetPort: 8500
+  type: NodePort

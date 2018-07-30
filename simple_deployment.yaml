@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: testkube
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: serving
+  minReadySeconds: 5
+  template:
+    metadata:
+      labels:
+        app: serving
+    spec:
+      containers:
+      - name: service
+        image: dfserve:0.9
+        ports:
+        - containerPort: 8500
